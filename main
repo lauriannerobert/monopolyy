@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+
+int main()
+{
+    printf("Hello world!\n");
+    return 0;
+}
+
+// pas plus de 30 lignes
+/* appelle juste fonctions
+*/
