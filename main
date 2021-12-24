@@ -1,15 +1,97 @@
+#ifndef CASEES_H_INCLUDED
+#define CASEES_H_INCLUDED
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
+#define NBRE_MAX_HOTEL 12
+#define NBRE_MAX_MAISON 32
 
+static int nbreTotalMaison = 0;
+static int nbreTotalHotel = 0;
 
-
-int main()
+struct terrain
 {
-    printf("Hello world!\n");
-    return 0;
-}
+    int libre;
+    char *nom;
+    int numeroTerrain;
+    int prixTerrain;
+    int proprietaire;
+    int nbrMaison;
+    int nbrHotel;
 
-// pas plus de 30 lignes
-/* appelle juste fonctions
-*/
+};
+
+struct chance
+{
+
+};
+
+struct communaute
+{
+
+};
+
+struct depart
+{
+
+};
+
+struct prison
+{
+
+};
+struct allerPrison
+{
+
+};
+struct libre
+{
+
+};
+
+enum typeCasee //dire quel type de case sur lequel on est = mettre nom sur valeur
+ {
+    TERRAIN = 0,// num pemet de distinguer
+    CHANCE = 1,
+    COMMUNAUTE = 2,
+    DEPART = 3,
+    PRISON = 4,
+    ALLER_PRISON = 5,
+    LIBRE = 6,
+ };
+
+struct casee //chaque case
+{
+    enum typeCasee typeCasee;//peut être à la fois une seule parmis options
+    union choixCasee
+    {
+        struct terrain terrain;// 24 ; 8 familles de 3 terrains +2gares
+        struct chance chance; //2
+        struct communaute communaute; //2
+        struct depart depart; //1
+        struct prison prison; //1
+        struct allerPrison allerPrison; //1
+        struct libre libre; //1
+
+    };// permet de nommer la definition d'unnion car aussi un attribut
+};
+
+union terrains
+{
+
+};
+
+struct casee *creationManhattan(); //famille1
+struct casee *creationBrooklyn(); //famille2
+struct casee *creationBronx(); //famille3
+struct casee *creationStatenIsland();//famille4
+struct casee *creationQueens(); //famille5
+struct casee *creationGares();
+// autre creations des autre terrains à COMPLETER
+
+void addMaison(terraina *t);
+void addHotel(terrainb *t);
+//terrain[4][8];
+
+
+#endif // CASEES_H_INCLUDED
